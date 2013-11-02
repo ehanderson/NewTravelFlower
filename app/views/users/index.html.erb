@@ -1,6 +1,6 @@
 <div class="all_user_display">
 
-  <h1><center><strong>TravelFlowers</strong></center></h1>
+  <h1>TravelFlowers</h1>
 
     <% @users.each do |user| %>
       <p><%= link_to image_tag(user.gravatar_url), user_path(user) %> 
@@ -11,7 +11,6 @@
          <p>(<%= user.name %> has not asked any questions yet!)
         <% else %>
           <% user.questions.each do |question| %> 
-          &nbsp&nbsp<%= question.question_text %><br>
           <ul>
             <li><%= link_to "#{question.question_text}", question_path(question)%></li>
           </ul>

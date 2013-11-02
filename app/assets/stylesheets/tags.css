@@ -3,3 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 */
 
+h1 { 
+  color: teal;
+}
+
+#tagname {
+  padding-top: 50px;
+}
+
+#tag_poster img{
+  width: 30px;
+}
+
+#tag_poster {
+  font-size: 10px;
+}
