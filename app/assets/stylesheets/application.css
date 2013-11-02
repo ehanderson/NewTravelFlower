@@ -1,3 +1,8 @@
+/* ...
+*= require_self
+*= require_tree .
+*/
+
 html {
   font-family: 'Chelsea Market', cursive;
   font-family: 'Comfortaa', cursive;
@@ -43,6 +48,8 @@ header li a:hover {
 
 header img {
   width:50px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 a.home {
@@ -143,19 +150,14 @@ ul{
   list-style-type: none;
 }
 
-#button_id{
-  border-style: solid;
-  border-size: 1px;
-  border-color: limegreen;
-  width: 100px;
-  font-size: 10px;
-  border-radius: 80%;
-  background-color: teal;
-  color:white;
-}
 .all_user_display h1 {
   padding-top: 50px;
   color: teal;
+
+}
+
+.all_user_display {
+  display: inline-block;
 }
 
 div.profile_container {
@@ -166,14 +168,4 @@ div.profile_container {
   font-size: 12px;
 }
 
-#tagname {
-  padding-top: 50px;
-}
 
-#tag_poster img{
-  width: 30px;
-}
-
-#tag_poster {
-  font-size: 10px;
-}

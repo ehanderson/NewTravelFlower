@@ -1,32 +1,42 @@
 <div class="question_show">
+
   <h2><%= @question.question_text %></h2>
     <%= image_tag @questioning_user.gravatar_url, { :class => "poster_image" }  %>
     Posted By:
     <%= @questioning_user.email %><br>
 
-
+</div>
 
   <br><br>
 
+<div class="answers_show">
   <h3>Answers:</h3>
     <% @question.answers.each do |answer| %>
-      <br><%= answer.answer_text %><br>
-      <div class="response"> <%= image_tag (User.find(answer.user_id).gravatar_url), { :class => "answerer_image" } %>    
+      <br><%= answer.answer_text %>
+      <ul>
+          <li>
+            
+            <div class="answerer_info"> <%= link_to image_tag(User.find(answer.user_id).gravatar_url), user_path(User.find(answer.user_id)) %>    
+              Answered by: <%= User.find(answer.user_id).name %><br> 
+              Tags: <% answer.tags.each do |tag| %>
+                      <%= link_to(tag.name, tag_path(tag)) %>
 
-      Answered by: <%= User.find(answer.user_id).email %><br> 
-      Tags:<br>
-    <% answer.tags.each do |tag| %>
-        <%= link_to(tag.name, tag_path(tag)) %><br>
-    <% end %></div><br>
-    <% end %>
+              <% end %>
+            
+          </li>
+      </ul>
+
+      <% end %>
 
   <br> 
+
 <% if session[:user_id] %>
-<h4 id="button_id">Post your Answer!</h4>
+
+<h4 id="button_id">Post an Answer!</h4>
   <%= form_for @answer do |f|%>
     <ul class="formList">
       <li>
-        <%= f.text_area :answer_text %>
+        <%= f.text_area :answer_text, size: "40x10" %>
       </li>
       <li>
  
@@ -41,4 +51,5 @@
     </ul>
   <% end %>
   <%end%>
+</div>
 </div>
