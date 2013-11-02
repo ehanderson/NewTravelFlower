@@ -10,17 +10,17 @@
 
   <h3>Answers:</h3>
     <% @question.answers.each do |answer| %>
-      <%= answer.answer_text %><br>
+      <br><%= answer.answer_text %><br>
       <div class="response"> <%= image_tag (User.find(answer.user_id).gravatar_url), { :class => "answerer_image" } %>    
 
       Answered by: <%= User.find(answer.user_id).email %><br> 
       Tags:<br>
-    <% @question.tags.each do |tag| %>
+    <% answer.tags.each do |tag| %>
         <%= link_to(tag.name, tag_path(tag)) %><br>
-    <% end %></div>
+    <% end %></div><br>
     <% end %>
 
-  <br><br>
+  <br> 
 
 <h4 id="button_id">Post your Answer!</h4>
   <%= form_for @answer do |f|%>
@@ -29,8 +29,8 @@
         <%= f.text_area :answer_text %>
       </li>
       <li>
-        <%= f.label :tag_name, "Add tags" %>
-        <%= f.text_field :tag_names %>
+ 
+        <%= text_field_tag :tag_names %>
       </li>
       <li>
         <%= hidden_field_tag :question_id, @question.id %>
