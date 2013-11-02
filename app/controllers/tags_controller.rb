@@ -6,7 +6,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
-
+    @tags = Tag.where(name: @tag.name)
   end
 
 end
