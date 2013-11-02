@@ -21,7 +21,7 @@
     <% end %>
 
   <br> 
-
+<% if session[:user_id] %>
 <h4 id="button_id">Post your Answer!</h4>
   <%= form_for @answer do |f|%>
     <ul class="formList">
@@ -40,4 +40,5 @@
       </li>
     </ul>
   <% end %>
+  <%end%>
 </div>
