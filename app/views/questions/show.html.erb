@@ -1,0 +1,41 @@
+<div class="question_show">
+  <h2><%= @question.question_text %></h2>
+    <%= image_tag @questioning_user.gravatar_url, { :class => "poster_image" }  %>
+    Posted By:
+    <%= @questioning_user.email %><br>
+
+    Tags:<br>
+    <% @question.tags.each do |tag| %>
+        <%= link_to(tag.name, tag_path(tag)) %><br>
+    <% end %>
+
+  <br><br>
+
+  <h3>Answers:</h3>
+    <% @question.answers.each do |answer| %>
+      <%= answer.answer_text %><br>
+      <%= image_tag (User.find(answer.user_id).gravatar_url), { :class => "answerer_image" } %>
+      Answered by: <%= User.find(answer.user_id).email %> <br><br>
+    <% end %>
+
+  <br><br>
+
+<h4 id="button_id">Post your Answer!</h4>
+  <%= form_for @answer do |f|%>
+    <ol class="formList">
+      <li>
+        <%= f.text_field :answer_text %>
+      </li>
+      <li>
+        <%= f.label :tag_name, "Add tags" %>
+        <%= f.text_field :tag_names %>
+      </li>
+      <li>
+        <%= hidden_field_tag :question_id, @question.id %>
+      </li>
+      <li>
+        <%= f.submit "Answer This" %>
+      </li>
+    </ol>
+  <% end %>
+</div>

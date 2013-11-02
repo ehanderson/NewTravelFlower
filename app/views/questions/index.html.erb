@@ -1,0 +1,13 @@
+<div class="questions_container">
+  <h4><%= flash[:success] %></h4>
+
+<h1>Welcome to Travel Flower! </h1><br>
+
+  <%@questions.each do |question|%>
+  <ul>
+    <li><h3> >> <%=link_to "#{question.question_text}", question_path(question)%></h3>
+    </li>
+    </ul>
+    <%end%>
+</div>
+

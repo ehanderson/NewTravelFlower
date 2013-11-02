@@ -1,0 +1,17 @@
+  <%= form_for @answer do |f|%>
+    <ul class="formList">
+      <li>
+        <%= f.text_area :answer_text %>
+      </li>
+      <li>
+        <%# label :for => :tag_names, "Add tags" %>
+        <%= text_field_tag :tag_names, "tags" %>
+      </li>
+      <li>
+        <%= hidden_field_tag :question_id, @question.id %>
+      </li>
+      <li>
+        <%= f.submit "Answer This" %>
+      </li>
+    </ul>
+  <% end %>

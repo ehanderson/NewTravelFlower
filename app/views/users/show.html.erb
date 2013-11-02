@@ -1,0 +1,17 @@
+<div class="profile_container">
+ 
+ <%= image_tag @user.gravatar_url %> <br>
+ <strong><%= @user.name %> <br></strong>
+ <%= @user.email %> <br>
+
+ <p><strong>Questions: </strong>
+  <% @user.questions.each do |question| %>
+  <ul>
+      <li><%= link_to (question.question_text), question_path(question)  %></li>
+  </ul>
+  <% end %>
+  <br>
+  <p> Member Since: <%= time_ago_in_words(@user.created_at) %> ago</p>
+</div>
+
+ 

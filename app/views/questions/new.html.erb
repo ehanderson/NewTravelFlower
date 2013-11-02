@@ -1,0 +1,9 @@
+<h2>Create a New Question:</h2>
+<div class="question_new">
+
+  <%= form_for :question, url: { action: "create"} do |f| %>
+
+  <%= f.text_area :question_text, :placeholder=> "Enter Question Here" %>
+  <%= f.submit "Post Question" %>
+  <% end %>
+</div>

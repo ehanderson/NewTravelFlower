@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TravelFlower</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Comfortaa:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+  <div id='page_body'>
+<header>
+
+    <ul>
+      <%= image_tag '/flower.jpg', {:class => "flower"} %>
+      <li><%= link_to('TravelFlower', root_path, { :class => "home"})%>
+      <li><%= link_to('Travelers', users_path) %></li>
+    <% if session[:user_id] %>
+      <li><%= link_to('Ask Question', new_question_path) %></li>
+      <li class='ajax_form'><%= link_to('Logout', logout_path) %></li>
+      <li><%= link_to( 'User Profile', users_path(@current_user))%></li>
+      <% else %>
+
+      <li class='ajax_form_login'><%= link_to('Login', new_user_path) %></li>
+      <li class='ajax_form'><%= link_to('Signup', new_user_path) %></li>
+
+      <li><%= link_to('Ask Question', new_user_path) %></li>
+
+    <% end %>
+  </ul>
+<%= form_for :user, url: login_path, html: {id: "user_login_form"} do |f| %>
+  <%=f.text_field :email, placeholder: "Email" %>
+  <%=f.password_field :password, placeholder: "Password" %>
+  <%=f.submit "Login"%>
+  <h4><%= flash[:error] %></h4>
+<%end%>
+</header>
+
+
+<body>
+  <div class='container'>
+    <%= yield %>
+  </div>
+</body>
+  </div>
+</html>
