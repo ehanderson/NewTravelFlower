@@ -1,6 +1,8 @@
 $(document).ready(function(){
-  $('#answer_form').hide();
+  $('.formList').hide();
    $('#button_id').click(function() {
-    $('#answer_form').show();
+    $('.answers_show').hide();
+    $('.formList').toggle();
+
 });
  });
