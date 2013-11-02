@@ -4,31 +4,33 @@
     Posted By:
     <%= @questioning_user.email %><br>
 
-    Tags:<br>
-    <% @question.tags.each do |tag| %>
-        <%= link_to(tag.name, tag_path(tag)) %><br>
-    <% end %>
+
 
   <br><br>
 
   <h3>Answers:</h3>
     <% @question.answers.each do |answer| %>
-      <%= answer.answer_text %><br>
-      <%= image_tag (User.find(answer.user_id).gravatar_url), { :class => "answerer_image" } %>
-      Answered by: <%= User.find(answer.user_id).email %> <br><br>
+      <br><%= answer.answer_text %><br>
+      <div class="response"> <%= image_tag (User.find(answer.user_id).gravatar_url), { :class => "answerer_image" } %>    
+
+      Answered by: <%= User.find(answer.user_id).email %><br> 
+      Tags:<br>
+    <% answer.tags.each do |tag| %>
+        <%= link_to(tag.name, tag_path(tag)) %><br>
+    <% end %></div><br>
     <% end %>
 
-  <br><br>
+  <br> 
 
 <h4 id="button_id">Post your Answer!</h4>
   <%= form_for @answer do |f|%>
-    <ol class="formList">
+    <ul class="formList">
       <li>
-        <%= f.text_field :answer_text %>
+        <%= f.text_area :answer_text %>
       </li>
       <li>
-        <%= f.label :tag_name, "Add tags" %>
-        <%= f.text_field :tag_names %>
+ 
+        <%= text_field_tag :tag_names %>
       </li>
       <li>
         <%= hidden_field_tag :question_id, @question.id %>
@@ -36,6 +38,6 @@
       <li>
         <%= f.submit "Answer This" %>
       </li>
-    </ol>
+    </ul>
   <% end %>
 </div>

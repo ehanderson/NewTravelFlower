@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    # if Ques
     @answer = Answer.new
     @questioning_user = User.find(@question.user_id)
   end
