@@ -3,15 +3,10 @@ require 'spec_helper'
 describe QuestionsController do
 
   describe "GET index" do
-    it "assigns @questions to all questions"do
+    it "assigns @questions to all questions" do
       questions = Question.all
       get :index
       expect(assigns(:questions)).to eq(questions)
-    end
-
-    it "responds successfully with an HTTP 200 status code" do
-      get :index
-      expect(response.status).to eq (200)
     end
 
     it "should render index successfully" do
@@ -38,4 +33,18 @@ describe QuestionsController do
       expect(response.status).to eq (200)
     end
   end
+
+  describe "POST #create" do 
+    # let(:question) {Question.create(question_text: "emily")}
+
+    it "should take two paramaters and return a question object" do
+        @question.should_be_an_instance_of Question
+    end 
+    
+    it "should redirect to question path" do
+      #pending 
+    end 
+
+  end
+
 end
