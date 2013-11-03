@@ -15,6 +15,27 @@ describe QuestionsController do
     end
   end
 
+  describe "#new" do
+    # before :each do 
+    #   @question = Question.new(question_text: "Where is Paris?")
+    # end
+
+    context "with no parameters"
+      it "has no question" do
+        question = Question.new
+        question.should have(0).questions
+      end
+    end
+
+    it "returns a new question object" do
+      #lambda { Question.new() }.should_not raise_exception ArgumentError
+    end
+
+    it "returns the correct question text" do 
+      #@question.question_text.should eql "Where is Paris?"
+    end
+  # end 
+
   describe "GET #show" do
       let(:question) {Question.create(question_text: "emily")}
       let(:answer) {Answer.create(answer_text: "that's right", question_id: question.id)}
@@ -50,5 +71,4 @@ describe QuestionsController do
     end
 
   end
-
 end
