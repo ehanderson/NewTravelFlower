@@ -176,3 +176,18 @@ div.profile_container {
 img.flower_answer {
   width:20px;
 }
+
+.all_user_display {
+    
+}
+
+.all_user_display ul {
+  
+
+}
+
+.all_user_display ul li {
+  width: 100px;
+  margin-right: 10px;
+  display: inline;
+}
