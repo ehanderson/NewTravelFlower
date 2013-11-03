@@ -16,6 +16,9 @@ gem 'bcrypt-ruby'
 
 gem 'gravtastic'
 
+gem 'better_errors'
+gem 'binding_of_caller'
+
 group :test, :development do
   gem "rspec-rails"
   gem 'shoulda-matchers'
