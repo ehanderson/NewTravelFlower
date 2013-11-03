@@ -43,7 +43,7 @@
       </li>
       <li>
       
-        <span id="tags">Tag Me?</span><span id="tag_form"><%= text_field_tag :tag_names %>
+        <span id="tags">Tag Me?</span><span id="tag_form"><%= text_field_tag :tag_names, "(i.e. #scenicview, #Paris)", size: 40 %>
       </li>
       <li>
         <%= hidden_field_tag :question_id, @question.id %>
