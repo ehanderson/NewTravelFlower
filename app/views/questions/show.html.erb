@@ -35,26 +35,8 @@
 
 <% if session[:user_id] %>
 
-
-  <%= form_for @answer do |f|%>
-    <ul class="formList">
-      <li>
-        <%= f.text_area :answer_text, size: "40x10" %>
-      </li>
-      <li>
-      
-        <span id="tags">Tag Me?</span><span id="tag_form"><%= text_field_tag :tag_names %>
-      </li>
-      <li>
-        <%= hidden_field_tag :question_id, @question.id %>
-      </li>
-      </span>
-      <li>
-
-        <%= f.submit "Post Answer" %>
-      </li>
-    </ul>
-  <% end %>
+  <%= render :partial => 'answers/form' %>
+  
   <%end%>
 
 </div>

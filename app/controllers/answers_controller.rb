@@ -15,9 +15,6 @@ class AnswersController < ApplicationController
     @answer.question = @question
    
     if @answer.save
-      params[:tag_names].split(' ').each do |tag_name|
-        @answer.tags.create(name: tag_name)
-        end
 
       redirect_to question_path(@question)
     else
