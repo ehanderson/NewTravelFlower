@@ -7,6 +7,9 @@ h1 {
   color: teal;
 }
 
+.tags_page {
+	padding-top: 50px;
+}
 #tagname {
   padding-top: 50px;
 }
