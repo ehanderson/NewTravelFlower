@@ -1,9 +1,9 @@
-<h1 id="tagname"><%= @tag.name %></h1>
+<h1 id="tagname"><%= remove_trailing_comma(@tag.name) %></h1>
 
 <% @tags.each do |tag|%>
   <ul>
     <li id="traveler_question">Q: <%=link_to "#{Question.find_by_id(tag.answers.first.question_id).question_text}", question_path(Question.find_by_id(tag.answers.first.question_id))%></li>
-    <li id="traveler_post">A: <%= tag.answers.first.answer_text%></li>
+    <li id="traveler_post">A: <%= tag.answers.first.answer_text%></li><br>
     <li id="tag_poster"> <%= link_to image_tag(User.find_by_id(tag.answers.first.user_id).gravatar_url), user_path(User.find_by_id(tag.answers.first.user_id)) %>  <%= User.find_by_id(tag.answers.first.user_id).name %> | Posted: <%= time_ago_in_words(tag.answers.first.created_at) %> ago </li>
   </ul>
 <%end%> 
