@@ -10,8 +10,8 @@
       <li><%= link_to (question.question_text), question_path(question)  %></li>
   </ul>
   <% end %>
-  <br>
-  <p> Member Since: <%= time_ago_in_words(@user.created_at) %> ago</p>
+
+  <p id="member_since"> Member Since: <%= time_ago_in_words(@user.created_at) %> ago</p>
 </div>
 
  

@@ -168,4 +168,11 @@ div.profile_container {
   font-size: 12px;
 }
 
+#member_since {
+  font-style: italic;
+  font-size: 10px;
+}
 
+img.flower_answer {
+  width:20px;
+}
