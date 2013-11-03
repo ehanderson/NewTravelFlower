@@ -45,6 +45,10 @@ describe QuestionsController do
       #pending 
     end 
 
+    it "should redirect to questions#new if question not saved" do
+      #pending 
+    end
+
   end
 
 end
