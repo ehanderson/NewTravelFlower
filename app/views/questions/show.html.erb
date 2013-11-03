@@ -18,7 +18,7 @@
       <ul>
           <li>
             
-            <div class="answerer_info"> <%= link_to image_tag(User.find(answer.user_id).gravatar_url), user_path(User.find(answer.user_id)) %>    
+            <div class="answerer_info"> <%= link_to image_tag(User.find(answer.user_id).gravatar_url), user_path(User.find((answer.user_id))) %>    
               Answered by: <%= User.find(answer.user_id).name %><br> 
               Tags: <% answer.tags.each do |tag| %>
                       <%= link_to(tag.name, tag_path(tag)) %>
