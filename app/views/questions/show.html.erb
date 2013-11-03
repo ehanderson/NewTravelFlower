@@ -14,20 +14,22 @@
     <% @question.answers.each do |answer| %>
     <%= image_tag 'flower.jpg', {:class => "flower_answer"} %> <%= answer.answer_text %>
       <ul>
-          <li>
+        <li>
             
-            <div class="answerer_info"> <%= link_to image_tag(User.find(answer.user_id).gravatar_url), user_path(User.find((answer.user_id))) %>    
-              Answered by: <%= User.find(answer.user_id).name %><br> 
-              Tags: <% answer.tags.each do |tag| %>
+          <div class="answerer_info"> <%= link_to image_tag(User.find(answer.user_id).gravatar_url), user_path(User.find((answer.user_id))) %>    
+            Answered by: <%= User.find(answer.user_id).name %><br> 
+            Tags: <% answer.tags.each do |tag| %>
                       <%= link_to(tag.name, tag_path(tag)) %>
 
-              <% end %>
-            
-          </li>
+            <% end %>
+          
+        </li>
       </ul>
+    <% end %>
 
-      <% end %>
-      <h4 id="button_id">Post an Answer!</h4>
+  <%if session[:user_id]%>
+    <h4 id="button_id">Post an Answer!</h4>
+  <%end%>
 </div>
   <br> 
 
