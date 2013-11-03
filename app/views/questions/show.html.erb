@@ -14,7 +14,7 @@
 <div class="answers_show">
   <h3>Answers:</h3>
     <% @question.answers.each do |answer| %>
-    >> <%= answer.answer_text %>
+    <%= image_tag 'flower.jpg', {:class => "flower_answer"} %> <%= answer.answer_text %>
       <ul>
           <li>
             
