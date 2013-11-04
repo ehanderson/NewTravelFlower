@@ -21,4 +21,5 @@ class AnswersController < ApplicationController
       render 'questions/show'
     end
   end
+  
 end

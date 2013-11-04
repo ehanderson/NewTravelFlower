@@ -7,13 +7,18 @@
         <%= f.text_area :answer_text, size: "40x10" %>
       </li>
       <li>
-        <span id="tags">Add a Tag</span>
-        <span id="tag_form"><%= f.text_field :tag_names %>
+        <span class="new_tag">
+        <%= f.fields_for :tag_names do |tags_form| %>
+          <%= render 'answers/tag_fields', :f => tags_form %>
+        <button id="new_tag">Add a tag</button>
+
+          <%= render 'answers/tag_fields', :f => tags_form %>
+        <% end %>
       </li>
       <li>
+      </span>
         <%= hidden_field_tag :question_id, @question.id %>
       </li>
-      </span>
       <li>
 
         <%= f.submit "Post Answer" %>

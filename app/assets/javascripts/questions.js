@@ -5,8 +5,10 @@ $(document).ready(function(){
     $('.answers_show').hide();
     $('.formList').toggle();
     // $('#tag_form').hide();
-      $("#tags").click(function() {
-      ('#tag_form').append("<%= render :partial => 'answers/form' %>");
+      $("#new_tag").click(function(event) {
+        event.preventDefault();
+        
+      
       });
 
 });
