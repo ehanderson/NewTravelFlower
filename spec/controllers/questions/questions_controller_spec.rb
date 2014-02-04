@@ -3,15 +3,10 @@ require 'spec_helper'
 describe QuestionsController do
 
   describe "GET index" do
-    it "assigns @questions to all questions"do
+    it "assigns @questions to all questions" do
       questions = Question.all
       get :index
       expect(assigns(:questions)).to eq(questions)
-    end
-
-    it "responds successfully with an HTTP 200 status code" do
-      get :index
-      expect(response.status).to eq (200)
     end
 
     it "should render index successfully" do
@@ -19,6 +14,27 @@ describe QuestionsController do
       response.status.should eq 200
     end
   end
+
+  describe "#new" do
+    # before :each do 
+    #   @question = Question.new(question_text: "Where is Paris?")
+    # end
+
+    context "with no parameters"
+      it "has no question" do
+        question = Question.new
+        question.should have(0).questions
+      end
+    end
+
+    it "returns a new question object" do
+      #lambda { Question.new() }.should_not raise_exception ArgumentError
+    end
+
+    it "returns the correct question text" do 
+      #@question.question_text.should eql "Where is Paris?"
+    end
+  # end 
 
   describe "GET #show" do
       let(:question) {Question.create(question_text: "emily")}
@@ -37,5 +53,22 @@ describe QuestionsController do
       get :show, id: question
       expect(response.status).to eq (200)
     end
+  end
+
+  describe "POST #create" do 
+    # let(:question) {Question.create(question_text: "emily")}
+
+    it "should take two paramaters and return a question object" do
+        @question.should_be_an_instance_of Question
+    end 
+    
+    it "should redirect to question path" do
+      #pending 
+    end 
+
+    it "should redirect to questions#new if question not saved" do
+      #pending 
+    end
+
   end
 end

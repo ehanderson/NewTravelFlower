@@ -18,7 +18,6 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_text: params[:question][:question_text], user_id: current_user.id)
     if @question
       @question.save
-      p @question
       redirect_to question_path(@question)
     else
       redirect_to 'questions#new'
